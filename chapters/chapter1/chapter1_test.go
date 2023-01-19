@@ -12,6 +12,36 @@ func TestAddition(t *testing.T) {
 		want int
 	}{
 		// FIXME: テストケースを追加
+		"numAが最小値である": {
+			numA: 0,
+			numB: 30,
+			want: 30,
+		},
+		"numBが最小値である": {
+			numA: 30,
+			numB: 10,
+			want: 40,
+		},
+		"numAが最大値である": {
+			numA: 100,
+			numB: 30,
+			want: 130,
+		},
+		"numBが最大値である": {
+			numA: 30,
+			numB: 200,
+			want: 230,
+		},
+		"numA, numBが最小値である": {
+			numA: 0,
+			numB: 10,
+			want: 10,
+		},
+		"numA, numBが最大値である": {
+			numA: 100,
+			numB: 200,
+			want: 300,
+		},
 	}
 	// エラー系のテストパターン
 	fail := map[string]struct {
@@ -20,6 +50,36 @@ func TestAddition(t *testing.T) {
 		wantErrStr string
 	}{
 		// FIXME: テストケースを追加
+		"numAが最小値未満である場合": {
+			numA:       -1,
+			numB:       30,
+			wantErrStr: "numAは0以上の数値を指定してください。",
+		},
+		"numBが最小値未満である場合": {
+			numA:       30,
+			numB:       9,
+			wantErrStr: "numBは10以上の数値を指定してください。",
+		},
+		"numAが最大値を超す場合": {
+			numA:       101,
+			numB:       30,
+			wantErrStr: "numAは100以下の数値を指定してください。",
+		},
+		"numBが最大値を超す場合": {
+			numA:       30,
+			numB:       201,
+			wantErrStr: "numBは200以下の数値を指定してください。",
+		},
+		"numA, numBが最小値未満である場合": {
+			numA:       -1,
+			numB:       9,
+			wantErrStr: "numAは0以上の数値を指定してください。",
+		},
+		"numA, numBが最大値を超す場合": {
+			numA:       101,
+			numB:       201,
+			wantErrStr: "numAは100以下の数値を指定してください。",
+		},
 	}
 
 	for tt, tc := range success {
