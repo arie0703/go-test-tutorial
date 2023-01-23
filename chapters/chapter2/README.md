@@ -38,3 +38,6 @@
   sample := New(mock)
   sample.exec()
 ```
+
+## 参考記事
+https://zenn.dev/sanpo_shiho/articles/01da627ead98f5

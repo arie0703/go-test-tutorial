@@ -97,3 +97,8 @@ func TestExample(t *testing.T) {
   }
 }
 ```
+
+## メモ
+
+- go-test-tutorial_appが上手く立ち上がらない場合
+  - `docker run -d -it go-test-tutorial_app`
